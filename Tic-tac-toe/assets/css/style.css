@@ -1,0 +1,180 @@
+:root {
+  --bg-color: #121212;
+  --text-color: #fff;
+  --border-color: #03dac5;
+  --x-color: #00bfff;
+  --o-color: #ff1744;
+  --win-glow: #4caf50;
+}
+
+body.light {
+  --bg-color: #ffffff;
+  --text-color: #000;
+  --border-color: #ccc;
+  --x-color: #1e88e5;
+  --o-color: #e53935;
+  --win-glow: #388e3c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.container {
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--border-color);
+  text-shadow: 0 0 10px var(--border-color);
+}
+
+#status {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.scoreboard div {
+  color: var(--text-color);
+  background: var(--bg-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--border-color);
+}
+
+/* Game Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #1e1e1e;
+  border: 2px solid var(--border-color);
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.cell:hover {
+  background: #2a2a2a;
+  transform: scale(1.05);
+}
+
+.cell.X {
+  color: var(--x-color);
+  text-shadow: 0 0 5px var(--x-color), 0 0 10px var(--x-color), 0 0 20px var(--x-color);
+}
+
+.cell.O {
+  color: var(--o-color);
+  text-shadow: 0 0 5px var(--o-color), 0 0 10px var(--o-color), 0 0 20px var(--o-color);
+}
+
+body.light .cell.X,
+body.light .cell.O {
+  text-shadow: none;
+}
+
+/* Win Highlight */
+.cell.win {
+  background-color: var(--win-glow);
+  color: #fff;
+  animation: glow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px var(--win-glow); }
+  to { box-shadow: 0 0 20px var(--win-glow), 0 0 30px var(--win-glow); }
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: var(--border-color);
+  color: #000;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+  margin: 5px auto;
+  display: block;
+}
+
+button:hover {
+  background-color: #00bfa5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 500px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    gap: 6px;
+  }
+
+  .cell {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #status {
+    font-size: 1rem;
+  }
+
+  .scoreboard {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    width: 90%;
+    max-width: 300px;
+  }
+}

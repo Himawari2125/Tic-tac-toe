@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic-Tac-Toe Game</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Tic-Tac-Toe</h1>
+
+    <!-- Game status -->
+    <div id="status">Player X's Turn 🔵</div>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <div>X Wins: <span id="xScore">0</span></div>
+      <div>O Wins: <span id="oScore">0</span></div>
+      <div>Ties: <span id="tieScore">0</span></div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button id="themeToggle">Switch to Light Mode 🌞</button>
+
+    <!-- Game board -->
+    <div class="board" id="board">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+
+    <!-- Reset button -->
+    <button id="resetBtn">Reset Game 🔄</button>
+  </div>
+
+  <!-- Sound Effects -->
+  <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-29.mp3"></audio>
+  <audio id="winSound" src="https://www.soundjay.com/human/sounds/applause-8.mp3"></audio>
+
+  <!-- Script -->
+  <script src="assets/javascript/script.js"></script>
+</body>
+</html>
